@@ -46,6 +46,7 @@ class Sist2Index:
         """
         self.filename = filename
         self.conn = sqlite3.connect(filename)
+        self.conn.text_factory = lambda b: b.decode(errors = 'ignore')
 
         self.cur = self.conn.cursor()
 
